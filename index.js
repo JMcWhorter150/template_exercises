@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const blog = require('./blog.js');
+const contacts = require('./contacts.js');
 
 const header = fs.readFileSync('templates/header.html');
 const footer = fs.readFileSync('templates/footer.html');
@@ -14,6 +15,8 @@ const server = http.createServer((req, res) => {
         let content = `<h1>Hello!</h1><h2>It is ${new Date()}</h2>`;
         if (req.url === "/blog") {
             content = `${blog.getContent(5)}`;
+        } else if (req.url === "/contact") {
+            content = `${contacts.getContacts()}`;
         }
         res.end(header + nav + content + footer);
 });
