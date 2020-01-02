@@ -3,10 +3,19 @@ const faker = require('faker');
 
 function getContacts() {
     let result = '';
+    let counter = 1;
     for (let obj of friends.contacts) {
-        result += `<h1>${obj.name}</h1>\n<h2>${obj.phone}, ${obj.email}</h2>\n`;
+        result += `<a href="/contact/${counter}">${obj.name}</a>`;
+        counter += 1;
     }
     return result;
+}
+
+function getContactInfo(number) {
+    let obj = friends.contacts[number];
+    return `<h1>${obj.name}</h1>
+    <h2>${obj.phone}</h2>
+    <h3>${obj.email}</h3>`
 }
 
 function getFakeContacts(times = 5) {
@@ -26,5 +35,6 @@ function getFakeContacts(times = 5) {
 
 module.exports = {
     getContacts,
-    getFakeContacts
+    getFakeContacts,
+    getContactInfo
 };
