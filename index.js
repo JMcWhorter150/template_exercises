@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
         if (req.url === "/blog") {
             content = `${blog.getContent(5)}`;
         } else if (req.url === "/contact") {
-            content = `${contacts.getFakeContacts(5)}`;
+            content = `${contacts.getContacts()}`;
         }
         res.end(header + nav + content + footer);
 });
