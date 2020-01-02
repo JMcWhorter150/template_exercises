@@ -9,7 +9,7 @@ function getContacts() {
     return result;
 }
 
-function getContacts2(times = 5) {
+function getFakeContacts(times = 5) {
     let result = '';
     let count = 0;
     while (count < times) {
@@ -26,5 +26,5 @@ function getContacts2(times = 5) {
 
 module.exports = {
     getContacts,
-    getContacts2
+    getFakeContacts
 };
